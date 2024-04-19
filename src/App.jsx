@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Menu from './components/Menu'
 import Ejemplo from './components/Ejemplo'
+import Lg from './components/Lg'
 
 
 
@@ -26,7 +27,8 @@ function App() {
         
       <Route path="/" element={<Ejemplo />} />
       <Route path="/casa/:id" element={<Casaseleccionada />} />
-      <Route path='i' component={IniciarSesion}/>
+
+      <Route path="/hola" element={<Lg/>}/>
       
          </Routes>
     </Router>

@@ -1,0 +1,30 @@
+.image-gallery-image {
+  width: 80% !important;
+  object-fit: fill !important;
+  height: 300px !important;
+}
+
+.image-gallery-slide-wrapper {
+  width: 100% !important;
+}
+
+.contenedorslider {
+  margin-top: 40px;
+  margin-bottom: 50px;
+  height: 100px;
+}
+
+body {
+  height: 800px;
+}
+
+.image-gallery-wrapper {
+  height: 5000px;
+  margin-top: 50px;
+  width: 80%;
+}
+
+.image-gallery-wrapper {
+  width: 40%;
+  margin-left: auto;
+}

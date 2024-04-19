@@ -5,17 +5,18 @@ import casa3 from "./casa3.webp";
 import casa4 from "./casa4.webp";
 import logo from "./logo.jpg"
 import Menu from "./Menu";
+import aaron from "./aaron.jpg"
 import "./casa.css"; 
+
 
 const Slider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const images = [casa1, logo];
+  const images = [casa1, logo, casa2, casa3,casa4, aaron];
   const rootElement = document.getElementById('root');
   rootElement.style.backgroundColor = "white";
   document.body.style.backgroundColor="white"
+  
 const [x, xx]=useState(false)
-
-
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
   };
@@ -24,44 +25,43 @@ const [x, xx]=useState(false)
     setCurrentIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
   };
 
+  const imagenes = [
+    { original: logo },
+    { original: casa1 },
+    { original: casa2 },
+    { original: casa3 },
+    {original: aaron}
+];
 
-  useEffect(() => {
-    if(x== false){ 
-    const slider = document.querySelector(".slider");
-    slider.style.display = "none";
-  }else{
-    const slider = document.querySelector(".slider");
-    slider.style.display ="block";
-  }
-  }, [x]); 
-
-  const as =()=>{
-    console.log("hsghdgd");
-    xx(true)
-
-if (x == true){    
-  const conte = document.querySelector(".conte");
-  conte.style.display ="none";
-  const conteabajo = document.querySelector(".abajo-contenedor");
-  conteabajo.style.display = "none"
-  const slider = document.querySelector(".slider");
-  slider.style.display="bock"
 
   
-}
-  }
 
   return (
     <>
       <Menu />
 
-<div className="conte" onClick={as} >
-  <img src={casa1} alt="" className='ime' />
-  <div className="cone"> 
-  <img src={casa2} alt=""  className='im'/>
+      <div className="slider">
+        <button className="prev" onClick={prevSlide}>❮</button>
+        {images.map((image, index) => (
+          <div
+            key={index}
+            className={index === currentIndex ? 'slide active' : 'slide'}
+          >
+            {index === currentIndex && (
+              <img src={image} alt={`Slide ${index + 1}`} />
+            )}
+          </div>
+        ))}
+        <button className="next" onClick={nextSlide}>❯</button>
+      </div>
+
+<div className="conte"  >
+  <img src={casa1} alt="" className='ime ime1' />
+ 
+  <img src={casa2} alt=""  className='ime ime2'/>
   
-  <img src={casa4} alt="" className='imm' />
-  </div>
+  <img src={casa4} alt="" className='ime ime2' />
+
 </div>
 
 <div className="abajo-contenedor"> 
@@ -101,20 +101,7 @@ if (x == true){
 
     </div>
 
-      <div className="slider">
-        <button className="prev" onClick={prevSlide}>❮</button>
-        {images.map((image, index) => (
-          <div
-            key={index}
-            className={index === currentIndex ? 'slide active' : 'slide'}
-          >
-            {index === currentIndex && (
-              <img src={image} alt={`Slide ${index + 1}`} />
-            )}
-          </div>
-        ))}
-        <button className="next" onClick={nextSlide}>❯</button>
-      </div>
+      
 
     </>
   );
