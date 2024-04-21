@@ -42,6 +42,8 @@ const [x, xx]=useState(false)
   return (
     <>
       <Menu />
+      <i class="fa-solid fa-user">ffffff</i>
+      
 
       <div className="slider">
         <button className="prev" onClick={prevSlide}>❮</button>
@@ -73,9 +75,16 @@ const [x, xx]=useState(false)
 <div className="informacion-casa">
 <div className="bb">
 <p className='sa'>Venta MN 2,050,000</p>
-  <p >Casa · 180m² · 3 recámaras · 2 estacionamientos</p>
+  <p className='nn'>Casa · 180m² · 3 recámaras · 2 estacionamientos</p>
 
 </div>
+
+<div className="des"> <h1>Casa en Venta en Fraccionamiento Las Lomas Torreón, Coahuila </h1>
+<p> 
+Estás buscando tu casa te presentamos uno de los Fraccionamientos con la mejor de las amenidades, cuenta alberca, Casa club, amplias áreas verdes, casa club, cancha de fútbol, cancha de Padel.
+Servicio de Vigilancia las 24 horas del día.
+Planta Baja:</p></div>
+
   <p className='lorem'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas nesciunt nulla animi libero ratione a iusto illo soluta maxime error porro earum ab, in esse officia et corporis qui nobis!
     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos ut laudantium voluptates doloribus, asperiores mollitia iusto nisi nobis laboriosam ea deserunt obcaecati id sit tempora dolorum vero ipsum ab? Soluta.
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum nihil vero quisquam, eum ab magni? Odit iure exercitationem ad alias quis, aliquid possimus enim eveniet saepe numquam, rerum deleniti cumque.
