@@ -11,7 +11,8 @@ import met from "./met.jpg"
 
 const Slider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const images = [casa1, logo, casa2, casa3,casa4, aaron , met];
+  const images = [casa1, logo, casa2, casa3,casa4, aaron , met]
+  const [quitar, setquitar]=useState(true)
   const rootElement = document.getElementById('root');
   rootElement.style.backgroundColor = "white";
   document.body.style.backgroundColor="white"
@@ -33,7 +34,25 @@ const [x, xx]=useState(false)
     {original: aaron}
 ];
 
+const quitardisplay =()=>{
 
+ setquitar(!quitar)
+ 
+}
+
+useEffect(() => {
+  if (!quitar) {
+    const c = document.querySelector(".leer");
+    c.style.display = "none";
+    const menos = document.querySelector(".menos")
+    menos.style.display = "block";
+  }else{
+    const menos = document.querySelector(".menos")
+    menos.style.display = "none";
+    const c = document.querySelector(".leer");
+    c.style.display = "block";
+  }
+}, [quitar]);
 
 
 
@@ -85,13 +104,28 @@ Estás buscando tu casa te presentamos uno de los Fraccionamientos con la mejor 
 Servicio de Vigilancia las 24 horas del día.
 Planta Baja:</p></div>
 
+<div> 
   <p className='lorem'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas nesciunt nulla animi libero ratione a iusto illo soluta maxime error porro earum ab, in esse officia et corporis qui nobis!
     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos ut laudantium voluptates doloribus, asperiores mollitia iusto nisi nobis laboriosam ea deserunt obcaecati id sit tempora dolorum vero ipsum ab? Soluta.
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum nihil vero quisquam, eum ab magni? Odit iure exercitationem ad alias quis, aliquid possimus enim eveniet saepe numquam, rerum deleniti cumque.
+    </p>  <button className='leer' onClick={quitardisplay}> leer mas </button>
+    <p className={quitar ? "pdis" : "lorem"}>
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, dolore provident totam ratione non odit! Veritatis voluptate eveniet qui optio! Perferendis corrupti reprehenderit amet quos? Consequuntur exercitationem saepe unde laudantium!
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias animi accusantium facere sapiente doloremque! Tenetur nulla corporis error debitis libero odio tempora eos, nesciunt, non ullam, nemo doloremque sint obcaecati.
     Lorem  sit amet consectetur adipisicing elit. Labore blanditiis praesentium facilis repellendus consequuntur aut asperiores sed voluptates nisi assumenda, perferendis nulla itaque exercitationem quidem iusto amet inventore. Mollitia, voluptas!
-  </p>
+    </p>
+    <button onClick={quitardisplay} className='menos'>leer menos</button>
+    </div>
+
+<ul className="iconos">
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+  <li>4</li>
+  <li>5</li>
+  
+</ul>
+
 </div>
 
 
