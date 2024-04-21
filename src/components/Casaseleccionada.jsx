@@ -7,11 +7,11 @@ import logo from "./logo.jpg"
 import Menu from "./Menu";
 import aaron from "./aaron.jpg"
 import "./casa.css"; 
-
+import met from "./met.jpg"
 
 const Slider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const images = [casa1, logo, casa2, casa3,casa4, aaron];
+  const images = [casa1, logo, casa2, casa3,casa4, aaron , met];
   const rootElement = document.getElementById('root');
   rootElement.style.backgroundColor = "white";
   document.body.style.backgroundColor="white"
