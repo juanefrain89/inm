@@ -34,6 +34,9 @@ const [x, xx]=useState(false)
 ];
 
 
+
+
+
   
 
   return (
@@ -64,8 +67,15 @@ const [x, xx]=useState(false)
 
 </div>
 
+
 <div className="abajo-contenedor"> 
+
 <div className="informacion-casa">
+<div className="bb">
+<p className='sa'>Venta MN 2,050,000</p>
+  <p >Casa · 180m² · 3 recámaras · 2 estacionamientos</p>
+
+</div>
   <p className='lorem'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas nesciunt nulla animi libero ratione a iusto illo soluta maxime error porro earum ab, in esse officia et corporis qui nobis!
     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos ut laudantium voluptates doloribus, asperiores mollitia iusto nisi nobis laboriosam ea deserunt obcaecati id sit tempora dolorum vero ipsum ab? Soluta.
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum nihil vero quisquam, eum ab magni? Odit iure exercitationem ad alias quis, aliquid possimus enim eveniet saepe numquam, rerum deleniti cumque.
@@ -75,6 +85,8 @@ const [x, xx]=useState(false)
   </p>
 </div>
 
+
+<div className="form-con">
 <div className="formulario-container">
       <h2 className='contac'>Contacto</h2>
       <form >
@@ -97,7 +109,7 @@ const [x, xx]=useState(false)
         <a href="" className="actionn">WhasaApp</a>
       </div>
     </div>
-
+    </div>
 
     </div>
 

@@ -7,6 +7,7 @@
   height: 500px;
   max-width: 1000px;
   margin: 0 auto;
+  display: none;
 }
 .im {
   width: 100%;
@@ -48,13 +49,41 @@
 
   border-radius: 10px;
 }
+.bb {
+  width: 100%;
+
+  border: 1px solid #f3f7f8;
+  box-shadow: 0px 3px 8px 0px rgba(93, 115, 126, 0.1);
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.form-con {
+  height: 4000px;
+  width: 400px;
+  background-color: #0056b3;
+}
+
+.sa {
+  font-size: 16px !important;
+  font-weight: 500;
+  color: #727272;
+  margin-top: 0;
+  margin-bottom: 16px;
+  line-height: 26px;
+}
+.bb > p {
+  font-size: 30px;
+  margin: 7px;
+}
 
 .formulario-container {
-  border: 1px solid rgb(193, 181, 181);
-  width: 350px;
+  border: 1px solid rgb(114, 114, 114);
+  width: 400px;
   padding: 10px;
   border-radius: 10px;
-  justify-self: end;
+
+  background-color: #f3f7f8;
 }
 .input-group {
   margin-bottom: 1rem;
@@ -181,6 +210,7 @@
     height: 300px;
     margin-top: 0px;
     margin-bottom: 20px;
+    display: block;
   }
   .slide img {
     height: 300px;

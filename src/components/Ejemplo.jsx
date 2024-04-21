@@ -70,7 +70,7 @@ const Ejemplo = () => {
                   </div>
                   <div className="contenedoropcioneshijo">
                     <div className="contenedordescrip"> 
-              <p className="desde">desde</p>
+                       <p className="desde">desde</p>
                       <h1 className="h1m">mxn 7,200,500</h1>
                       <p className="lugar">{e.ciudad}</p>
                       <p className="descripcion">30m x 15,  3 baños, 6 recamaras y patio</p>
