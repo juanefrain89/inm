@@ -8,6 +8,13 @@ import Menu from "./Menu";
 import aaron from "./aaron.jpg"
 import "./casa.css"; 
 import met from "./met.jpg"
+import { LuBath } from "react-icons/lu";
+import { BsHeartFill, BsHeart } from 'react-icons/bs';
+import { CiRuler } from "react-icons/ci";
+
+import { IoBedOutline } from "react-icons/io5";
+import { MdBathtub } from "react-icons/md";
+import { IoCarSportOutline } from "react-icons/io5"
 
 const Slider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -117,12 +124,13 @@ Planta Baja:</p></div>
     <button onClick={quitardisplay} className='menos'>leer menos</button>
     </div>
 
-<ul className="iconos">
-  <li>1</li>
-  <li>2</li>
-  <li>3</li>
-  <li>4</li>
-  <li>5</li>
+    <ul className="iconos">
+  <li> <IoBedOutline  className='icono1'/>
+  </li>
+  <li><LuBath  className='icono1 ico' /></li>
+  <li><MdBathtub className='icono1'></MdBathtub></li>
+  <li><IoCarSportOutline className='icono1'></IoCarSportOutline></li>
+  <li><CiRuler className='icono1'></CiRuler></li>
   
 </ul>
 
