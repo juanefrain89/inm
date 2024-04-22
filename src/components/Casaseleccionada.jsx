@@ -11,7 +11,7 @@ import met from "./met.jpg"
 import { LuBath } from "react-icons/lu";
 import { BsHeartFill, BsHeart } from 'react-icons/bs';
 import { CiRuler } from "react-icons/ci";
-
+import Piepag from './Piepag';
 import { IoBedOutline } from "react-icons/io5";
 import { MdBathtub } from "react-icons/md";
 import { IoCarSportOutline } from "react-icons/io5"
@@ -165,7 +165,7 @@ Planta Baja:</p></div>
     </div>
 
       
-
+<Piepag></Piepag>
     </>
   );
 };
