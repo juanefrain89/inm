@@ -46,20 +46,43 @@ const Ejemplo = () => {
         console.log(e.target.name);
     }
     
+
+    const [mostrarContenido, setmostrar]=useState(false);
+    const x =()=>{
+        setmostrar(!mostrarContenido)
+    }
+
     return ( 
         <>
         <Menu></Menu>
+       
 
           <div className="contenedorinput"> 
          
+          <input type="text" className="jm"  placeholder="ingresa estado ciudad o pais" />
+          <div type="text" className="jj"  onClick={x} ><center><p>mas filtros</p></center></div>
           
-            <input type="text" className="jm" placeholder="ingresa estado ciudad o pais" />
+
+
+
             <input type="text" className="jm ll" placeholder="ingresa compra o renta" />
 
 
             <input type="number" onChange={cambiarfiltros} className="jm ll" placeholder="ingresa renta o compra" />
+            
             <input type="text" className="jm ll" placeholder="recamaras" />
           </div>
+          {mostrarContenido && (
+        <div className='contenidooculto' >
+         <div className='hs'> <div className="contenidooculto1"><p >precio-minimo</p>
+         <input type="text" />
+         <p >precio-maximo</p>
+         <input type="text" />
+         </div>
+         <div className="contenidooculto1"><p ></p></div>
+          </div>
+        </div>
+      )}
 
           {nuevo.map((e)=>(
               <Link to={`/casa/${id}`}>

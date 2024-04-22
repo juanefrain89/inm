@@ -68,8 +68,7 @@ useEffect(() => {
   return (
     <>
       <Menu />
-      <i class="fa-solid fa-user">ffffff</i>
-      
+
 
       <div className="slider">
         <button className="prev" onClick={prevSlide}>❮</button>
