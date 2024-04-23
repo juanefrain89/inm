@@ -269,6 +269,39 @@ center > p {
 
   border: 1px solid rgb(124, 152, 167);
 }
+.active {
+  border: solid 1px green;
+}
+
+.contenedorsig {
+  width: 40px;
+  height: 40px;
+  margin: 100px 0 200px 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100px;
+  cursor: pointer;
+}
+
+.invisible {
+  border: none;
+  background-color: transparent;
+  color: inherit;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+  height: 100%;
+  width: 100%;
+}
+
+.hj {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 @media screen and (max-width: 600px) {
   .contenedoropciones {

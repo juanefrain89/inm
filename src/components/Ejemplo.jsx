@@ -70,6 +70,14 @@ const [numeroElementos , setnumeroElementos]= useState(3);
 const siguiente =(e)=>{
     e.preventDefault();
     setnumeroElementos(e.target.value *3)
+    var elementos = document.querySelectorAll('.contenedorsig');
+    elementos.forEach(function(elemento) {
+        elemento.classList.remove('active');
+    });
+
+ 
+    e.target.closest('.contenedorsig').classList.add('active');
+
 
 
 }
@@ -152,8 +160,20 @@ const siguiente =(e)=>{
             
           ))}
 
-          <input type="submit" onClick={siguiente}  value={2}/>
-          <input type="submit" onClick={siguiente}  value={3}/>
+<div className="hj"> 
+
+<div className="contenedorsig active"> 
+          <input type="submit" className="invisible " onClick={siguiente}  value={1}/>
+          </div>
+
+<div className="contenedorsig "> 
+          <input type="submit" className="invisible " onClick={siguiente}  value={2}/>
+          </div>
+
+          <div className="contenedorsig"> 
+          <input type="submit" onClick={siguiente} className="invisible" value={3}/>
+          </div>
+          </div>
           <Piepag></Piepag>
        
 
