@@ -15,26 +15,64 @@ import { useState } from "react";
 const Ejemplo = () => {
 
     let propiedades = [{
-        ciudad:"salamanca",
+        ciudad:"1",
         precio : 2000,
         status : "comprar"
     },{
-        ciudad : "monterrey",
+        ciudad : "2",
         precio :1500,
         status :"compra"
     },{
-        ciudad : "monterrey",
+        ciudad : "3",
         precio :1500,
         status :"compra"
     },{
-        ciudad : "monterrey",
+        ciudad : "4",
         precio :1500,
         status :"renta"
     },{
-        ciudad:"salamanca",
+        ciudad:"5",
         precio : 2000,
         status : "comprar"
-    }]
+    },{
+        ciudad:"6",
+        precio : 2000,
+        status : "comprar"
+    },{
+        ciudad:"7",
+        precio : 2000,
+        status : "comprar"
+    },{
+        ciudad:"8",
+        precio : 2000,
+        status : "comprar"
+    },{
+        ciudad:"9",
+        precio : 2000,
+        status : "comprar"
+    },{
+        ciudad:"10",
+        precio : 2000,
+        status : "comprar"
+    }
+
+]
+const [numeroElementos , setnumeroElementos]= useState(3);
+
+    const propiedades2 = []
+    for(let i=0 ; i<3; i++){
+        propiedades2.push(propiedades[i])
+        console.log(propiedades2);
+        
+    }
+
+    
+const siguiente =(e)=>{
+    e.preventDefault();
+    setnumeroElementos(e.target.value *3)
+
+
+}
 
     const [inp, setinp]=useState(0)
 
@@ -87,7 +125,7 @@ const Ejemplo = () => {
         </div>
       )}
 
-          {nuevo.map((e)=>(
+          {nuevo.slice(numeroElementos-3,numeroElementos).map((e)=>(
               <Link to={`/casa/${id}`}>
               <div className="contenedoropciones">
                   <div className="one"> 
@@ -114,7 +152,8 @@ const Ejemplo = () => {
             
           ))}
 
-          <button></button>
+          <input type="submit" onClick={siguiente}  value={2}/>
+          <input type="submit" onClick={siguiente}  value={3}/>
           <Piepag></Piepag>
        
 
