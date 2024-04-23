@@ -1,6 +1,7 @@
 import "./menu.css"
 import logo from "./logo.jpg"
 import { Link } from "react-router-dom";
+
 const Menu = () => {
     return ( 
         <>

@@ -17,6 +17,7 @@ import { MdBathtub } from "react-icons/md";
 import { IoCarSportOutline } from "react-icons/io5"
 
 const Slider = () => {
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const images = [casa1, logo, casa2, casa3,casa4, aaron , met]
   const [quitar, setquitar]=useState(true)

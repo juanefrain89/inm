@@ -1,6 +1,8 @@
 import Menu from "./Menu";
 import "./ejemplo.css"
 import casa1 from "./casa1.webp"
+import Piepag from "./Piepag";
+import Slider from "./Casaseleccionada";
 
 import {
     BrowserRouter as Router,
@@ -52,15 +54,16 @@ const Ejemplo = () => {
         setmostrar(!mostrarContenido)
     }
 
+    const casaseleccionada = "juani"
     return ( 
         <>
-        <Menu></Menu>
-       
+         <Menu />
+      
 
           <div className="contenedorinput"> 
          
           <input type="text" className="jm"  placeholder="ingresa estado ciudad o pais" />
-          <div type="text" className="jj"  onClick={x} ><center><p>mas filtros</p></center></div>
+          <div type="text" className="jj"  onClick={x} ><center><p>filtros</p></center></div>
           
 
 
@@ -70,12 +73,12 @@ const Ejemplo = () => {
 
             <input type="number" onChange={cambiarfiltros} className="jm ll" placeholder="ingresa renta o compra" />
             
-            <input type="text" className="jm ll" placeholder="recamaras" />
+            <input type="number" className="jm ll" placeholder="recamaras" />
           </div>
           {mostrarContenido && (
         <div className='contenidooculto' >
-         <div className='hs'> <div className="contenidooculto1"><p >precio-minimo</p>
-         <input type="text" />
+         <div className='hs'> <div className="contenidooculto1"><p   >precio-minimo</p>
+         <input type="number" onChange={cambiarfiltros} />
          <p >precio-maximo</p>
          <input type="text" />
          </div>
@@ -110,6 +113,9 @@ const Ejemplo = () => {
             
             
           ))}
+
+          <button></button>
+          <Piepag></Piepag>
        
 
         </>
