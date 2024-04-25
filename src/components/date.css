@@ -155,5 +155,9 @@
 @media screen and (max-width: 470px) {
   .form {
     width: 90%;
+    padding-left: 0px;
+  }
+  .inputContainer {
+    height: 65px;
   }
 }
