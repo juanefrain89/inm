@@ -108,11 +108,11 @@ const Ejemplo = () => {
         status :"compra"
     },{
         ciudad : "24",
-        precio :1500,
+        precio :15000,
         status :"compra"
     },{
         ciudad : "25",
-        precio :1500,
+        precio :15000,
         status :"compra"
     }
 ]
@@ -125,7 +125,26 @@ const [numeroElementos , setnumeroElementos]= useState(6);
         
     }
 
+const[preciominimo, setpreciominimo]=useState()
+    const botonfiltrar =(e)=>{
+e.preventDefault()
+setpreciominimo(e.target.value)
+console.log(preciominimo);
+
+
+    }
     
+    const [primerHijoActivo, setPrimerHijoActivo] = useState(false);
+
+    const cambiarfiltros = (e) => {
+        e.preventDefault();
+        setinp(preciominimo);
+        console.log(inp);
+        setnumeroElementos(1 * 6);
+        setPrimerHijoActivo(true);
+    };
+
+
 const siguiente =(e)=>{
     e.preventDefault();
     setnumeroElementos(e.target.value *6)
@@ -143,11 +162,8 @@ const siguiente =(e)=>{
     const rootElement = document.getElementById('root');
     const [contador, setcontador]=useState(9)
     
+
    
-    const cambiarfiltros =(e)=>{
-        setinp(e.target.value)
-        console.log(e.target.name);
-    }
     
 
 useEffect(()=>{
@@ -179,16 +195,17 @@ useEffect(()=>{
             <input type="text" className="jm ll" placeholder="ingresa compra o renta" />
 
 
-            <input type="number" onChange={cambiarfiltros} className="jm ll" placeholder="ingresa renta o compra" />
+            <input type="number" className="jm ll" placeholder="ingresa renta o compra" />
             
             <input type="number" className="jm ll" placeholder="recamaras" />
           </div>
           {mostrarContenido && (
         <div className='contenidooculto' >
          <div className='hs'> <div className="contenidooculto1"><p   >precio-minimo</p>
-         <input type="number" onChange={cambiarfiltros} />
+         <input type="number" />
          <p >precio-maximo</p>
-         <input type="text"/>
+         <input type="text" onChange={botonfiltrar} />
+         <button onClick={cambiarfiltros}>aceptar</button>
          </div>
          <div className="contenidooculto1"><p ></p></div>
           </div>
@@ -228,7 +245,7 @@ useEffect(()=>{
          
 <div className="hj">
 {nuevo.slice(0,Math.ceil(contador / 6)).map((elemento, index) => (
-    <div key={index} className={`contenedorsig ${index === 0 ? 'active' : ''}`}> 
+    <div key={index} className={`contenedorsig ${index === 0   || primerHijoActivo  ? 'active' : ''}`}> 
         <input 
             type="submit" 
             className="invisible" 
