@@ -144,6 +144,7 @@
   }
   .title {
     font-size: 30px;
+    margin-top: 20px;
   }
 }
 
@@ -155,7 +156,6 @@
 @media screen and (max-width: 470px) {
   .form {
     width: 90%;
-    padding-left: 0px;
   }
   .inputContainer {
     height: 65px;

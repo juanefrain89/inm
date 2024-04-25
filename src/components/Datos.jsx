@@ -28,7 +28,7 @@ const Datos = () => {
 
       <div class="inputContainer">
         <textarea type="text" class="input1 input"   name="comentarios"/>
-        <label for="" class="label">comentarios</label>
+        <label for="" class="label">descripcion</label>
       </div>
 
 <div className="centrar"> 
