@@ -22,7 +22,7 @@ const Partecliente = () => {
            <input type="number" className="jm ll" placeholder="ingresa renta o compra" />
            <input type="number" className="jm ll" placeholder="recamaras" />
          </div>
-        <Link to={`/`}>
+        <Link to={`/enviardatos`}>
               <div className="contenedoropciones">
                   <div className="one"> 
                   <div className="conetendorimagen1">
