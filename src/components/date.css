@@ -5,7 +5,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background-color: #98a0a1;
+  background-color: #7ce6fb;
   font-family: "lato", sans-serif;
 }
 
@@ -32,6 +32,7 @@
   padding: 0px 40px;
   box-shadow: 0 10px 25px rgba(92, 99, 105, 0.2);
   height: 550px;
+  margin-bottom: 170px;
 }
 
 .title {
