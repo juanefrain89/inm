@@ -116,6 +116,7 @@ const Ejemplo = () => {
         status :"compra"
     }
 ]
+const [mostrarContenido, setmostrar]=useState(false);
 const [numeroElementos , setnumeroElementos]= useState(6);
 
     const propiedades2 = []
@@ -142,6 +143,7 @@ console.log(preciominimo);
         console.log(inp);
         setnumeroElementos(1 * 6);
         setPrimerHijoActivo(true);
+        setmostrar(!mostrarContenido)
     };
 
 
@@ -163,7 +165,12 @@ const siguiente =(e)=>{
     const [contador, setcontador]=useState(9)
     
 
-   
+    useEffect(() => {
+        const primerHijo = document.querySelector('.contenedorsig');
+        if (primerHijo) {
+            primerHijo.classList.add('active');
+        }
+    }, []);
     
 
 useEffect(()=>{
@@ -173,7 +180,7 @@ useEffect(()=>{
 
 ,[nuevo])
 
-    const [mostrarContenido, setmostrar]=useState(false);
+   
     const x =()=>{
         setmostrar(!mostrarContenido)
     }
@@ -245,7 +252,7 @@ useEffect(()=>{
          
 <div className="hj">
 {nuevo.slice(0,Math.ceil(contador / 6)).map((elemento, index) => (
-    <div key={index} className={`contenedorsig ${index === 0   || primerHijoActivo  ? 'active' : ''}`}> 
+    <div key={index} className={`contenedorsig ${index === 0   && primerHijoActivo  ? 'active' : ''}`}> 
         <input 
             type="submit" 
             className="invisible" 
