@@ -5,8 +5,8 @@ import './App.css'
 import Menu from './components/Menu'
 import Ejemplo from './components/Ejemplo'
 import Lg from './components/Lg'
-
-
+import Partecliente from './components/Partecliente'
+import Datos from './components/Datos'
 
 import {
   BrowserRouter as Router,
@@ -25,11 +25,11 @@ function App() {
     <Router>
       <Routes> 
         
-      <Route path="/" element={<Ejemplo />} />
+      <Route path="/" element={<Partecliente />} />
       <Route path="/casa/:id" element={<Casaseleccionada />} />
 
       <Route path="/hola" element={<Lg/>}/>
-      
+      <Route path='enviardatos' element={<Datos></Datos>} />
          </Routes>
     </Router>
      

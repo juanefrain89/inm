@@ -1,0 +1,28 @@
+.modificar {
+  align-items: center;
+  background-color: rgb(18, 101, 255);
+}
+
+.modificar,
+.eliminar {
+  align-items: center;
+  border-radius: 4px;
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 12px;
+  margin: 0 8px 12px;
+  padding: 7px 8px;
+  text-decoration: none;
+  width: 150px;
+  height: 35px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  cursor: pointer;
+}
+
+.eliminar {
+  background-color: red;
+}
