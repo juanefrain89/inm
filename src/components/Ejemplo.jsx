@@ -11,7 +11,7 @@ import {
     Link,
     
   } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 const Ejemplo = () => {
 
     let propiedades = [{
@@ -51,13 +51,72 @@ const Ejemplo = () => {
         precio : 2000,
         status : "comprar"
     },{
-        ciudad:"10",
-        precio : 2000,
-        status : "comprar"
+        ciudad : "10",
+        precio :1500,
+        status :"compra"
+    },{
+        ciudad : "11",
+        precio :1500,
+        status :"compra"
+    },{
+        ciudad : "12",
+        precio :1500,
+        status :"compra"
+    },{
+        ciudad : "13",
+        precio :1500,
+        status :"compra"
+    },{
+        ciudad : "14",
+        precio :1500,
+        status :"compra"
+    },{
+        ciudad : "15",
+        precio :1500,
+        status :"compra"
+    },{
+        ciudad : "16",
+        precio :1500,
+        status :"compra"
+    },{
+        ciudad : "17",
+        precio :1500,
+        status :"compra"
+    },{
+        ciudad : "18",
+        precio :1500,
+        status :"compra"
+    },{
+        ciudad : "19",
+        precio :1500,
+        status :"compra"
+    },{
+        ciudad : "20",
+        precio :1500,
+        status :"compra"
+    },{
+        ciudad : "21",
+        precio :1500,
+        status :"compra"
+    },{
+        ciudad : "22",
+        precio :1500,
+        status :"compra"
+    },{
+        ciudad : "23",
+        precio :1500,
+        status :"compra"
+    },{
+        ciudad : "24",
+        precio :1500,
+        status :"compra"
+    },{
+        ciudad : "25",
+        precio :1500,
+        status :"compra"
     }
-
 ]
-const [numeroElementos , setnumeroElementos]= useState(3);
+const [numeroElementos , setnumeroElementos]= useState(6);
 
     const propiedades2 = []
     for(let i=0 ; i<3; i++){
@@ -69,17 +128,12 @@ const [numeroElementos , setnumeroElementos]= useState(3);
     
 const siguiente =(e)=>{
     e.preventDefault();
-    setnumeroElementos(e.target.value *3)
+    setnumeroElementos(e.target.value *6)
     var elementos = document.querySelectorAll('.contenedorsig');
     elementos.forEach(function(elemento) {
         elemento.classList.remove('active');
-    });
-
- 
+    }); 
     e.target.closest('.contenedorsig').classList.add('active');
-
-
-
 }
 
     const [inp, setinp]=useState(0)
@@ -87,13 +141,21 @@ const siguiente =(e)=>{
     const nuevo = propiedades.filter(item => item.precio > inp )
     const id =1
     const rootElement = document.getElementById('root');
+    const [contador, setcontador]=useState(9)
     
-    
+   
     const cambiarfiltros =(e)=>{
         setinp(e.target.value)
         console.log(e.target.name);
     }
     
+
+useEffect(()=>{
+
+    setcontador(nuevo.length)
+}
+
+,[nuevo])
 
     const [mostrarContenido, setmostrar]=useState(false);
     const x =()=>{
@@ -126,14 +188,15 @@ const siguiente =(e)=>{
          <div className='hs'> <div className="contenidooculto1"><p   >precio-minimo</p>
          <input type="number" onChange={cambiarfiltros} />
          <p >precio-maximo</p>
-         <input type="text" />
+         <input type="text"/>
          </div>
          <div className="contenidooculto1"><p ></p></div>
           </div>
         </div>
       )}
 
-          {nuevo.slice(numeroElementos-3,numeroElementos).map((e)=>(
+
+          {nuevo.slice(numeroElementos-6,numeroElementos).map((e)=>(
               <Link to={`/casa/${id}`}>
               <div className="contenedoropciones">
                   <div className="one"> 
@@ -154,25 +217,29 @@ const siguiente =(e)=>{
                   </div>
                   </div>
               </div>
+             
               </Link>
               
             
             
           ))}
+          
 
-<div className="hj"> 
+         
+<div className="hj">
+{nuevo.slice(0,Math.ceil(contador / 6)).map((elemento, index) => (
+    <div key={index} className={`contenedorsig ${index === 0 ? 'active' : ''}`}> 
+        <input 
+            type="submit" 
+            className="invisible" 
+            onClick={siguiente} 
+            value={index + 1}
+        />
+    </div>
+))}
 
-<div className="contenedorsig active"> 
-          <input type="submit" className="invisible " onClick={siguiente}  value={1}/>
-          </div>
 
-<div className="contenedorsig "> 
-          <input type="submit" className="invisible " onClick={siguiente}  value={2}/>
-          </div>
 
-          <div className="contenedorsig"> 
-          <input type="submit" onClick={siguiente} className="invisible" value={3}/>
-          </div>
           </div>
           <Piepag></Piepag>
        
