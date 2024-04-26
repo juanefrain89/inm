@@ -25,8 +25,9 @@ function App() {
     <Router>
       <Routes> 
         
-      <Route path="/" element={<Partecliente />} />
+      <Route path="/" element={<Ejemplo/>} />
       <Route path="/casa/:id" element={<Casaseleccionada />} />
+      <Route path='/publicar' element={<Datos></Datos>}></Route>
 
       <Route path="/hola" element={<Lg/>}/>
       <Route path='enviardatos' element={<Datos></Datos>} />
