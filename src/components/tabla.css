@@ -1,0 +1,121 @@
+
+body{
+    background-color: #faf8f8;
+}
+
+table{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+   
+}
+
+tr{
+
+   background-color: #fff;
+    padding: 0;
+    border-bottom : 1px solid  black;
+    vertical-align:bottom  ;
+    margin: 0 !important;
+    padding: 0;
+
+    
+     
+}
+
+.eliminar{
+    background-color: red;
+    height: 30px;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    margin-bottom: 5px;
+     justify-content: center;
+     cursor: pointer;
+    
+}
+.eliminar:hover{
+    border: 2px solid black;
+}
+
+.agg:hover{
+    border: 2px solid black;
+
+}
+
+
+
+.agg{
+    cursor: pointer;
+    margin-left: auto;
+    background-color: blue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: aliceblue;
+    height: 50px;
+    border-radius: 10px;
+    margin-top: 100px;
+    width: 150px;
+    margin-right: auto;
+    margin-bottom:100px ;
+}
+ 
+table{
+     
+    gap: 0;
+    border-spacing: 0px;
+    border-collapse: collapse;
+}
+
+tr, td{
+    
+    margin: 0 !important;
+    height: 10px;
+    
+}
+td{
+padding-bottom: 10px;
+padding-top: 10px;
+max-width: 100px;
+overflow-y: hidden;
+
+}
+ 
+.desp{
+
+    height: 90px;
+    overflow-y: scroll;
+}
+
+.pad0{
+    padding: 0% ;
+}
+
+
+
+.publicacionesh1{
+    margin-left: auto;
+    margin-right: auto;
+    color: black;
+    font-weight: bold;
+   
+    font-size: 50px;
+}
+
+.centrar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    
+}
+.contenedor-tabla{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-around;
+    
+    height: 100vh;
+}

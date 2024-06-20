@@ -5,6 +5,20 @@
   width: 100% !important;
 }
 
+ 
+
+.xx{
+   font-size: 30px;
+   color: white;
+   margin-left: 20px;
+   margin-top:  8px;
+   cursor: pointer;
+    
+}
+.slide{
+  border: none !important;
+}
+
 .icono1 {
   width: 50px;
   height: 80px;
@@ -22,6 +36,31 @@
   margin: 0 auto;
   display: none;
 }
+
+ 
+
+.slider2{
+  position: relative;
+  width: 50%;
+  height: 400px;
+  max-width: 1000px;
+  margin: 0 auto;
+  z-index: 1;
+  margin-top: 2%;
+  display: none;
+
+}
+
+.absolu{
+  width: 2000px;
+  height: 100vh;
+  background-color: black;
+  position: absolute;
+  opacity:  1;
+  display: none;
+}
+
+
 .im {
   width: 100%;
   height: 50%;
@@ -216,8 +255,25 @@
   width: 100%;
   height: 500px;
   opacity: 0;
-  transition: opacity 5s ease; /* Transición más lenta */
+  transition: opacity 5s ease; 
 }
+
+
+.slide2 img {
+  width: 100%;
+  height: 400px;
+  opacity: 0;
+  transition: opacity 5s ease; 
+}
+
+.slide2{
+  border: none !important;
+}
+
+.slide2.active img {
+  opacity: 1;
+}
+
 
 .slide.active img {
   opacity: 1; /* Mostrar la imagen activa */

@@ -3,7 +3,8 @@ import "./ejemplo.css"
 import casa1 from "./casa1.webp"
 import Piepag from "./Piepag";
 import Slider from "./Casaseleccionada";
-
+import Sa from "./Sa";
+import axios from 'axios';
 import {
     BrowserRouter as Router,
     Routes,
@@ -14,108 +15,20 @@ import {
 import { useEffect, useState } from "react";
 const Ejemplo = () => {
 
-    let propiedades = [{
-        ciudad:"1",
-        precio : 2000,
-        status : "comprar"
-    },{
-        ciudad : "2",
-        precio :1500,
-        status :"compra"
-    },{
-        ciudad : "3",
-        precio :1500,
-        status :"compra"
-    },{
-        ciudad : "4",
-        precio :1500,
-        status :"renta"
-    },{
-        ciudad:"5",
-        precio : 2000,
-        status : "comprar"
-    },{
-        ciudad:"6",
-        precio : 2000,
-        status : "comprar"
-    },{
-        ciudad:"7",
-        precio : 2000,
-        status : "comprar"
-    },{
-        ciudad:"8",
-        precio : 2000,
-        status : "comprar"
-    },{
-        ciudad:"9",
-        precio : 2000,
-        status : "comprar"
-    },{
-        ciudad : "10",
-        precio :1500,
-        status :"compra"
-    },{
-        ciudad : "11",
-        precio :1500,
-        status :"compra"
-    },{
-        ciudad : "12",
-        precio :1500,
-        status :"compra"
-    },{
-        ciudad : "13",
-        precio :1500,
-        status :"compra"
-    },{
-        ciudad : "14",
-        precio :1500,
-        status :"compra"
-    },{
-        ciudad : "15",
-        precio :1500,
-        status :"compra"
-    },{
-        ciudad : "16",
-        precio :1500,
-        status :"compra"
-    },{
-        ciudad : "17",
-        precio :1500,
-        status :"compra"
-    },{
-        ciudad : "18",
-        precio :1500,
-        status :"compra"
-    },{
-        ciudad : "19",
-        precio :1500,
-        status :"compra"
-    },{
-        ciudad : "20",
-        precio :1500,
-        status :"compra"
-    },{
-        ciudad : "21",
-        precio :1500,
-        status :"compra"
-    },{
-        ciudad : "22",
-        precio :1500,
-        status :"compra"
-    },{
-        ciudad : "23",
-        precio :1500,
-        status :"compra"
-    },{
-        ciudad : "24",
-        precio :15000,
-        status :"compra"
-    },{
-        ciudad : "25",
-        precio :15000,
-        status :"compra"
-    }
-]
+    const [propiedades , sepropiedades] = useState([])
+    useEffect(()=>{
+        axios.get("http://localhost:3000/re")
+        .then(response =>{
+sepropiedades(response.data)
+console.log(response.data);
+ 
+        })
+        .catch(e =>{
+            console.log(e);
+        })
+
+    },[])
+    
 const [mostrarContenido, setmostrar]=useState(false);
 const [numeroElementos , setnumeroElementos]= useState(6);
 
@@ -189,6 +102,7 @@ useEffect(()=>{
     return ( 
         <>
          <Menu />
+       
       
 
           <div className="contenedorinput"> 
@@ -220,7 +134,7 @@ useEffect(()=>{
       )}
 
 
-          {nuevo.slice(numeroElementos-6,numeroElementos).map((e)=>(
+          {nuevo.slice(numeroElementos-6,numeroElementos).map((e, index)=>(
               <Link to={`/casa/${id}`}>
               <div className="contenedoropciones">
                   <div className="one"> 
@@ -228,14 +142,15 @@ useEffect(()=>{
                       <img src={casa1} alt=""  className="casa"/>
                   </div>
                   <div className="contenedoropcioneshijo">
-                    <div className="contenedordescrip"> 
+                    <div className="contenedordescrip">
+                         
                        <p className="desde">desde</p>
-                      <h1 className="h1m">mxn 7,200,500</h1>
+                      <h1 className="h1m">{e.precio}</h1>
                       <p className="lugar">{e.ciudad}</p>
-                      <p className="descripcion">30m x 15,  3 baños, 6 recamaras y patio</p>
+                      <p className="descripcion">{e.descripcion}</p>
                       </div>
                       <div className="contenedorcontacto">
-                      <a href="" className="action">WhasaApp</a>
+                      <a  href={`https://api.whatsapp.com/send?phone=${e.whatsapp}&text=Hola%20desde%20${encodeURIComponent(e.ciudad)}`} className="action">WhasaApp</a>
                       <a href="" className="action action2">correo</a>
                       </div>
                   </div>

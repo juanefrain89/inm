@@ -62,13 +62,65 @@ useEffect(() => {
 }, [quitar]);
 
 
-
+const contenedor = document.querySelector(".abajo-contenedor")
   
+  const [scroll , setcoll]=useState(0)
+  const [mod , setmod]= useState(false)
+  
+    useEffect(()=>{
+
+},[])
+
+const [cv , ccv]=useState(false)
+
+const fun = ()=>{
+  ccv(!cv)
+  const bb =document.querySelector(".absolu")
+  const cvb = document.querySelector(".slider2") 
+  if (cv == true) {
+    document.body.style.overflow = "hidden"; // Deshabilitar el scroll
+    bb.style.display = "block";
+    cvb.style.display = "block";
+}else{
+  document.body.style.overflow = "scroll";  
+    bb.style.display = "none";
+    cvb.style.display = "none";
+
+}
+}
+
 
   return (
     <>
       <Menu />
+      <div className="absolu">
+        <p className='xx' onClick={fun}>x</p>
+      </div>
 
+      <div className="slider2">
+        <button className="prev" onClick={prevSlide}>❮</button>
+        {images.map((image, index) => (
+          <div
+            key={index}
+            className={index === currentIndex ? 'slide2 active' : 'slide2'}
+          >
+            {index === currentIndex && (
+              <img src={image} alt={`Slide ${index + 1}`} />
+            )}
+          </div>
+        ))}
+        <button className="next" onClick={nextSlide}>❯</button>
+      </div>
+
+<div className="conte" onClick={fun} >
+  
+  <img src={casa1} alt="" className='ime ime1' />
+ 
+  <img src={casa2} alt=""  className='ime ime2'/>
+  
+  <img src={casa4} alt="" className='ime ime2' />
+
+</div>
 
       <div className="slider">
         <button className="prev" onClick={prevSlide}>❮</button>
@@ -85,14 +137,7 @@ useEffect(() => {
         <button className="next" onClick={nextSlide}>❯</button>
       </div>
 
-<div className="conte"  >
-  <img src={casa1} alt="" className='ime ime1' />
- 
-  <img src={casa2} alt=""  className='ime ime2'/>
-  
-  <img src={casa4} alt="" className='ime ime2' />
 
-</div>
 
 
 <div className="abajo-contenedor"> 
@@ -132,6 +177,8 @@ Planta Baja:</p></div>
   <li><CiRuler className='icono1'></CiRuler></li>
   
 </ul>
+  
+
 
 </div>
 

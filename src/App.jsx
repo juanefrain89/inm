@@ -7,6 +7,8 @@ import Ejemplo from './components/Ejemplo'
 import Lg from './components/Lg'
 import Partecliente from './components/Partecliente'
 import Datos from './components/Datos'
+import Sa from './components/Sa'
+import Nuevo from './components/Nuevo'
 
 import {
   BrowserRouter as Router,
@@ -17,6 +19,7 @@ import {
 } from "react-router-dom";
 import Casaseleccionada from './components/Casaseleccionada'
 import IniciarSesion from './components/IniciarSesion'
+import Nuevoregistro from './components/Nuevoregistro'
 function App() {
   const [count, setCount] = useState(0)
 
@@ -26,6 +29,9 @@ function App() {
       <Routes> 
         
       <Route path="/" element={<Ejemplo/>} />
+      <Route path="/nuevo" element={<Nuevo/>} />
+     <Route path='registro' element={<Sa/>}/>
+     
       <Route path="/casa/:id" element={<Casaseleccionada />} />
       <Route path='/publicar' element={<Datos></Datos>}></Route>
 
@@ -39,3 +45,4 @@ function App() {
 }
 
 export default App
+ 
