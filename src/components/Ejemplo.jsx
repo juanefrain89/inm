@@ -36,7 +36,7 @@ const Ejemplo = () => {
 
     const [propiedades , sepropiedades] = useState([])
     useEffect(()=>{
-        axios.get("http://localhost:3000/re")
+        axios.get("https://inmueblesnode-2.onrender.com/peticiones")
         .then(response =>{
 sepropiedades(response.data)
 console.log(response.data);
