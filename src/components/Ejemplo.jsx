@@ -15,6 +15,7 @@ import {
 import { useEffect, useState } from "react";
 const Ejemplo = () => {
 
+    const [nuevo, setNuevo] = useState([]);
     const sendHello = async (e) => {
         e.preventDefault();
         const user = {
@@ -39,6 +40,7 @@ const Ejemplo = () => {
         axios.get("https://inmueblesnode-2.onrender.com/peticiones")
         .then(response =>{
 sepropiedades(response.data)
+setNuevo(propiedades)
 console.log(response.data);
  
         })
@@ -90,8 +92,8 @@ const siguiente =(e)=>{
 }
 
     const [inp, setinp]=useState(0)
-const [nuevo , senuevo]=useState([])
-    senuevo( propiedades.filter(item => item.precio > inp ))
+   
+    setNuevo(propiedades.filter(item => item.precio > inp));
     const id =1
     const rootElement = document.getElementById('root');
     const [contador, setcontador]=useState(9)
