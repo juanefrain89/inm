@@ -15,6 +15,25 @@ import {
 import { useEffect, useState } from "react";
 const Ejemplo = () => {
 
+    const sendHello = async (e) => {
+        e.preventDefault();
+        const user = {
+            username: 'juan',
+            email: 'razo',
+            password: '12345'
+          };
+
+    try {
+      const response = await axios.post('https://inmueblesnode-2.onrender.com/k', user, {
+        withCredentials: true
+      });
+      console.log('Response:', response.data);
+    } catch (error) {
+      console.error('Error sending message:', error);
+    }
+      };
+    
+
     const [propiedades , sepropiedades] = useState([])
     useEffect(()=>{
         axios.get("http://localhost:3000/re")
@@ -102,7 +121,7 @@ useEffect(()=>{
     return ( 
         <>
          <Menu />
-       
+         <button onClick={sendHello}>Send "hola"</button>
       
 
           <div className="contenedorinput"> 
