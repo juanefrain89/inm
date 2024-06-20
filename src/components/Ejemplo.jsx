@@ -90,8 +90,8 @@ const siguiente =(e)=>{
 }
 
     const [inp, setinp]=useState(0)
-
-    const nuevo = propiedades.filter(item => item.precio > inp )
+const [nuevo , senuevo]=useState([])
+    senuevo( propiedades.filter(item => item.precio > inp ))
     const id =1
     const rootElement = document.getElementById('root');
     const [contador, setcontador]=useState(9)
