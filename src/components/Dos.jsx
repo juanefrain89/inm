@@ -76,12 +76,12 @@ const Dos = () => {
             <div className="ff"> 
             <h1>añade una descripcion</h1>
             <textarea name="descripcion" onChange={fun} id="tex"></textarea>
-
+            <button onClick={mandar} className="bon">enviar</button>
             </div>
             </div>
-             <button onClick={mandar} className="bon">enviar</button>
+             
 
-        </div>
+        </div>  
      
      
         </>

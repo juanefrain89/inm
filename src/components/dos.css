@@ -71,6 +71,7 @@ button.bon {
     }
 .conu{
     width: 100%;
+     
 }
 .esado{
     width: 90%;
@@ -81,4 +82,34 @@ button.bon {
 .conu > h1{
     font-size: 20px;
     margin-bottom: 5px;
+}
+
+
+
+@media screen and (max-width: 600px) {
+    .faa{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+    }
+    #tex{
+        width: 95%;
+        height: 70%;
+        margin-left: 0%;
+        
+    }
+    .esado{
+        width: 95%;
+        height: 45px;
+
+    }
+   
+    button.bon{
+        margin-left: 0;
+    }
+    .ff{
+        width: 100%;
+        align-items: start;
+    }
 }
