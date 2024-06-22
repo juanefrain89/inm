@@ -40,8 +40,9 @@ const Ejemplo = () => {
         axios.get("https://inmueblesnode-2.onrender.com/peticiones")
         .then(response =>{
 sepropiedades(response.data)
-setNuevo(propiedades)
-console.log(response.data);
+ 
+ 
+ 
  
         })
         .catch(e =>{
@@ -50,6 +51,10 @@ console.log(response.data);
 
     },[])
     
+    useEffect(()=>{
+        setNuevo(propiedades)
+        console.log(nuevo);
+    },[propiedades])
 const [mostrarContenido, setmostrar]=useState(false);
 const [numeroElementos , setnumeroElementos]= useState(6);
 
@@ -93,7 +98,11 @@ const siguiente =(e)=>{
 
     const [inp, setinp]=useState(0)
    
-    setNuevo(propiedades.filter(item => item.precio > inp));
+   
+    useEffect(() => {
+        setNuevo(propiedades.filter(item => item.costo > inp));
+    }, [inp, propiedades]);
+
     const id =1
     const rootElement = document.getElementById('root');
     const [contador, setcontador]=useState(9)
@@ -166,7 +175,7 @@ useEffect(()=>{
                     <div className="contenedordescrip">
                          
                        <p className="desde">desde</p>
-                      <h1 className="h1m">{e.precio}</h1>
+                      <h1 className="h1m">{e.costo}</h1>
                       <p className="lugar">{e.ciudad}</p>
                       <p className="descripcion">{e.descripcion}</p>
                       </div>

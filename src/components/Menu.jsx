@@ -7,15 +7,17 @@ const Menu = () => {
         <>
         <nav className="contenormenu">
             <div className="menustart">
-                <img src={logo} alt=""  className="logo"/>
+            <Link to="/">  
+                <img src={logo} alt=""  f className="logo"/>
+                </Link>
                 <p>uhudhud</p>
                 <p>sdhufd</p>
             </div>
             <div className="menuend">
-                <Link to="/publicar"> <p className="pmenu">publicar</p> </Link>
+                <Link to="/publicar"> <p className="pmenu">iniciar sesion</p> </Link>
                 
-                <Link to="/iniciar">   
-                <p className="pmenu">iniciar sesion</p>
+                <Link to="/registro">   
+                <p className="pmenu">mis publicaciones</p>
                 </Link>
                 
             </div>

@@ -84,7 +84,7 @@ console.log(data);
        
         </table>
         
-        <Link className="agg" to={"/nuevo"}>
+        <Link className="agg" to={"/dos"}>
 
             agregar nuevo
         </Link>

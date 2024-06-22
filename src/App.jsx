@@ -9,6 +9,7 @@ import Partecliente from './components/Partecliente'
 import Datos from './components/Datos'
 import Sa from './components/Sa'
 import Nuevo from './components/Nuevo'
+import Dos from './components/Dos'
 
 import {
   BrowserRouter as Router,
@@ -34,6 +35,7 @@ function App() {
      
       <Route path="/casa/:id" element={<Casaseleccionada />} />
       <Route path='/publicar' element={<Datos></Datos>}></Route>
+      <Route path='/dos' element={<Dos></Dos>}></Route>
 
       <Route path="/hola" element={<Lg/>}/>
       <Route path='enviardatos' element={<Datos></Datos>} />

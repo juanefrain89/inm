@@ -1,4 +1,4 @@
-.conform{
+.kl{
    margin-left: auto;
    margin-right: auto;
     width: 100%;
@@ -9,6 +9,11 @@
     background-color: rgb(46, 46, 46);
     flex-wrap: wrap;
 
+}
+.conform{
+    width: 100%;
+    height: 1000px;
+    background-color: rgb(46, 46, 46);
 }
 
 .unocon{
@@ -23,6 +28,19 @@
     align-items: center;
     
    
+}
+
+.car{
+    width: 50%;
+    height: 50px;
+    
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+.car > marquee{
+    color: rgb(96, 28, 205);
+    font-size: 30px;
 }
 
 .unocon > textarea{
