@@ -4,6 +4,14 @@ import axios from "axios";
 import Menu from "./Menu.jsx"
 const Dos = () => {
 
+    const handleImageChange = (e) => {
+        const file = e.target.files[0];
+        setestado((prevEstado) => ({
+            ...prevEstado,
+            imagen: file,
+        }));
+    };
+
     useEffect(()=>{
         const roo = document.querySelector("#root")
         roo.style.backgroundColor = "#f2f2f2";
@@ -18,7 +26,8 @@ const Dos = () => {
         baños : "",
         direccion:"",
         descripcion:"",
-        cuartos:""
+        cuartos:"",
+        imagen :""
     })
     const [visible, setVisible] = useState(false);
     
@@ -29,6 +38,7 @@ const Dos = () => {
             ...estado,
             [e.target.name]: e.target.value 
         })
+        console.log(estado);
     }
     const mandar =()=>{
         const userConfirmed = window.confirm("¿Deseas mandar nuevo registro?");
@@ -64,6 +74,9 @@ const Dos = () => {
            <input name="correo" onChange={fun}  className="esado" type="email" />
            <h1>baños </h1>  
            <input name="baños" className="esado" onChange={fun} type="number" />
+           <h1>imagenes</h1>
+           <input type="file" onChange={handleImageChange} name="imagen"/>
+            
             </div>
             <div className="conu">
                <h1>    metros</h1>

@@ -1,0 +1,62 @@
+.app {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 20px;
+  }
+  
+  h1 {
+    color: #333;
+  }
+  
+  form {
+    margin-bottom: 20px;
+  }
+  
+  input {
+    padding: 10px;
+    font-size: 16px;
+    margin-right: 10px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .results {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .video {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    width: 300px;
+    background-color: #fff;
+  }
+  
+  .video img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .video h3 {
+    margin: 10px 0 5px;
+    font-size: 18px;
+    color: #1a73e8;
+  }
+  
+  .video p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .video a {
+    text-decoration: none;
+  }
+  

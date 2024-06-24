@@ -21,6 +21,8 @@ import {
 import Casaseleccionada from './components/Casaseleccionada'
 import IniciarSesion from './components/IniciarSesion'
 import Nuevoregistro from './components/Nuevoregistro'
+import Io from './components/Io'
+import Ii from './components/Ii'
 function App() {
   const [count, setCount] = useState(0)
 
@@ -29,8 +31,9 @@ function App() {
     <Router>
       <Routes> 
         
-      <Route path="/" element={<Ejemplo/>} />
-      <Route path="/nuevo" element={<Nuevo/>} />
+      <Route path="/" element={<Nuevo/>} />
+      <Route path="/bd" element={<Ii></Ii>} />
+      <Route path="/nuevo" element={<Io></Io>} />
      <Route path='registro' element={<Sa/>}/>
      
       <Route path="/casa/:id" element={<Casaseleccionada />} />
