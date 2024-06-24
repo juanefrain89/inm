@@ -31,7 +31,7 @@ function App() {
     <Router>
       <Routes> 
         
-      <Route path="/" element={<Nuevo/>} />
+      <Route path="/" element={<Ejemplo/>} />
       <Route path="/bd" element={<Ii></Ii>} />
       <Route path="/nuevo" element={<Io></Io>} />
      <Route path='registro' element={<Sa/>}/>
