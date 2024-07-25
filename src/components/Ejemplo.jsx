@@ -16,7 +16,7 @@ const Ejemplo = () => {
     const [contador, setContador] = useState(9);
 
     useEffect(() => {
-        axios.get("http://localhost:3000/peticiones")
+        axios.get("https://inmueblesnode-2.onrender.com/peticiones")
             .then(response => {
                 setPropiedades(response.data);
                 console.log(response.data);
