@@ -42,17 +42,7 @@ const Ejemplo = () => {
         }
     }, []);
 
-   
-
-        try {
-            const response = await axios.post('https://inmueblesnode-2.onrender.com/k', user, {
-                withCredentials: true
-            });
-            console.log('Response:', response.data);
-        } catch (error) {
-            console.error('Error sending message:', error);
-        }
-    };
+  
 
     const botonfiltrar = (e) => {
         e.preventDefault();
