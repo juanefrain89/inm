@@ -286,6 +286,7 @@ center > p {
 }
 
 .invisible {
+   
   border: none;
   background-color: transparent;
   color: inherit;

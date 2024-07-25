@@ -1,6 +1,6 @@
 import Menu from "./Menu";
 import "./ejemplo.css"
-import casa1 from "./casa1.webp"
+import casa1 from "./casaa.jpg"
 import Piepag from "./Piepag";
 import Slider from "./Casaseleccionada";
 import Sa from "./Sa";
@@ -37,18 +37,14 @@ const Ejemplo = () => {
 
     const [propiedades , sepropiedades] = useState([])
     useEffect(()=>{
-        axios.get("https://inmueblesnode-2.onrender.com/peticiones")
+        axios.get("http://localhost:3000/peticiones")
         .then(response =>{
 sepropiedades(response.data)
- 
- 
- 
- 
-        })
+console.log(response.data);
+         })
         .catch(e =>{
             console.log(e);
         })
-
     },[])
     
     useEffect(()=>{
@@ -73,9 +69,7 @@ console.log(preciominimo);
 
 
     }
-    
     const [primerHijoActivo, setPrimerHijoActivo] = useState(false);
-
     const cambiarfiltros = (e) => {
         e.preventDefault();
         setinp(preciominimo);
@@ -136,14 +130,9 @@ useEffect(()=>{
       
 
           <div className="contenedorinput"> 
-         
-          <input type="text" className="jm"  placeholder="ingresa estado ciudad o pais" />
+                   <input type="text" className="jm"  placeholder="ingresa estado ciudad o pais" />
           <div type="text" className="jj"  onClick={x} ><center><p>filtros</p></center></div>
-          
-
-
-
-            <input type="text" className="jm ll" placeholder="ingresa compra o renta" />
+                  <input type="text" className="jm ll" placeholder="ingresa compra o renta" />
 
 
             <input type="number" className="jm ll" placeholder="ingresa renta o compra" />
@@ -159,17 +148,18 @@ useEffect(()=>{
          <button onClick={cambiarfiltros}>aceptar</button>
          </div>
          <div className="contenidooculto1"><p ></p></div>
-          </div>
-        </div>
+                  </div>
+                </div>
       )}
 
 
           {nuevo.slice(numeroElementos-6,numeroElementos).map((e, index)=>(
               <Link to={`/casa/${id}`}>
               <div className="contenedoropciones">
+                {e.id}
                   <div className="one"> 
                   <div className="conetendorimagen1">
-                      <img src={casa1} alt=""  className="casa"/>
+                  <img src={`data:image/jpeg;base64,${e.imagen}`} alt="casa" className="casa"/>
                   </div>
                   <div className="contenedoropcioneshijo">
                     <div className="contenedordescrip">
@@ -187,15 +177,11 @@ useEffect(()=>{
                   </div>
               </div>
              
-              </Link>
-              
-            
-            
-          ))}
-          
-
-         
-<div className="hj">
+              </Link>           
+                     
+                     ))} 
+        
+        <div className="hj">
 {nuevo.slice(0,Math.ceil(contador / 6)).map((elemento, index) => (
     <div key={index} className={`contenedorsig ${index === 0   && primerHijoActivo  ? 'active' : ''}`}> 
         <input 
@@ -205,16 +191,9 @@ useEffect(()=>{
             value={index + 1}
         />
     </div>
-))}
-
-
-
-          </div>
+))}          </div>
           <Piepag></Piepag>
-       
-
-        </>
+         </>
      );
 }
- 
 export default Ejemplo;

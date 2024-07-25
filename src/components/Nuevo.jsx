@@ -57,16 +57,12 @@ const Nuevo = () =>{
                 </div>
                 <div className="dd"> <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates vitae libero alias voluptate laborum molestiae quis ullam tempora, maiores accusamus, nesciunt illo, eius optio itaque sunt eum quisquam. Placeat, praesentium.</p> </div>
                 <a href=" http://127.0.0.1:5002" className="fac yo">youtube</a> </div>
-
+            </div>                       
             </div>
-            
-            </div>
-            
          </div>
 
         </>
     )
-
 }
 
 export default Nuevo;

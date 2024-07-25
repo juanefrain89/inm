@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import casa1 from "./casa1.webp";
-import casa2 from "./casa2.webp";
+import casa1 from "./casaae2.jpg";
+import casa2 from "./casaae3.jpg";
 import casa3 from "./casa3.webp";
 import casa4 from "./casa4.webp";
 import logo from "./logo.jpg"
@@ -16,6 +16,7 @@ import { IoBedOutline } from "react-icons/io5";
 import { MdBathtub } from "react-icons/md";
 import { IoCarSportOutline } from "react-icons/io5"
 
+
 const Slider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const images = [casa1, logo, casa2, casa3,casa4, aaron , met]
@@ -23,12 +24,42 @@ const Slider = () => {
   const rootElement = document.getElementById('root');
   rootElement.style.backgroundColor = "white";
   document.body.style.backgroundColor="white"
-  
+  const [scrollb, setscrollb]=useState(window.scrollY)
+  const form =document.querySelector(".form-con")
+useEffect(()=>{
+
+  const dd =()=>{
+    setscrollb(window.scrollY)
+    console.log(window.scrollY)
+
+    if(scrollb > 548 && scrollb < 1000){
+      form.style.position = "fixed"
+      form.style.right ="0px"
+      form.style.top = "10%"
+      console.log("jsjs");
+         }else{
+          
+          form.style.position = "relative"
+
+         } 
+       }
+
+window.addEventListener("scroll", dd)
+ return ()=>{
+  window.removeEventListener("scroll", dd)
+ }
+}, [window.scrollY])
+    useEffect(()=>{
+      const alto = document.querySelector(".informacion-casa")
+      var altoo = alto.clientHeight;
+      var formcon = document.querySelector(".form-con") 
+      formcon.style.height = altoo + "px"
+    }, []) 
+
 const [x, xx]=useState(false)
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
   };
-
   const prevSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
   };
@@ -54,8 +85,7 @@ useEffect(() => {
     const menos = document.querySelector(".menos")
     menos.style.display = "block";
   }else{
-    const menos = document.querySelector(".menos")
-    menos.style.display = "none";
+     
     const c = document.querySelector(".leer");
     c.style.display = "block";
   }
@@ -113,13 +143,9 @@ const fun = ()=>{
       </div>
 
 <div className="conte" onClick={fun} >
-  
   <img src={casa1} alt="" className='ime ime1' />
- 
   <img src={casa2} alt=""  className='ime ime2'/>
-  
   <img src={casa4} alt="" className='ime ime2' />
-
 </div>
 
       <div className="slider">
@@ -165,7 +191,7 @@ Planta Baja:</p></div>
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias animi accusantium facere sapiente doloremque! Tenetur nulla corporis error debitis libero odio tempora eos, nesciunt, non ullam, nemo doloremque sint obcaecati.
     Lorem  sit amet consectetur adipisicing elit. Labore blanditiis praesentium facilis repellendus consequuntur aut asperiores sed voluptates nisi assumenda, perferendis nulla itaque exercitationem quidem iusto amet inventore. Mollitia, voluptas!
     </p>
-    <button onClick={quitardisplay} className='menos'>leer menos</button>
+     
     </div>
 
     <ul className="iconos">
@@ -175,7 +201,6 @@ Planta Baja:</p></div>
   <li><MdBathtub className='icono1'></MdBathtub></li>
   <li><IoCarSportOutline className='icono1'></IoCarSportOutline></li>
   <li><CiRuler className='icono1'></CiRuler></li>
-  
 </ul>
   
 
@@ -184,7 +209,7 @@ Planta Baja:</p></div>
 
 
 <div className="form-con">
-<div className="formulario-container">
+   <div className="formulario-container">
       <h2 className='contac'>Contacto</h2>
       <form >
         <div className="input-group">
@@ -206,14 +231,10 @@ Planta Baja:</p></div>
         <a href="" className="actionn">WhasaApp</a>
       </div>
     </div>
-    </div>
-
-    </div>
-
-      
+  </div>
+ </div>   
 <Piepag></Piepag>
     </>
   );
 };
-
 export default Slider;
