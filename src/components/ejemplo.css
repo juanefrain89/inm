@@ -127,6 +127,8 @@ a:hover {
   margin-left: auto;
   margin-right: auto;
   margin: auto;
+  height: auto;
+  
   
   border: 1px solid rgb(203, 214, 220);
 
@@ -145,7 +147,9 @@ a:hover {
   padding-left: 10px;
 }
 .conetendorimagen1 {
-   height: 100%;
+  flex: 1;
+  display: flex;
+  align-items: stretch;
   width: 32%;
 }
 
@@ -161,15 +165,13 @@ a:hover {
 }
 
 .contenedoropcioneshijo {
-  width: 68%;
-  height: 100%;
-  padding: 20px;
-  padding-bottom: 5px !important;
-  background-color: #fdfcfc;
+  flex: 2;
   display: flex;
   flex-direction: column;
-  justify-content:  center;
-   
+  justify-content: space-between; 
+  width: 68%;
+  padding: 20px;
+  background-color: #fdfcfc;
  
  
 }
@@ -212,7 +214,10 @@ center > p {
 }
 
 .contenedordescrip {
-  height: 80%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .jm::placeholder {
@@ -323,6 +328,12 @@ center > p {
   align-items: center;
   justify-content: center;
 }
+
+
+
+ 
+
+  
 
 @media screen and (max-width: 600px) {
   .contenedoropciones {

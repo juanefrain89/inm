@@ -15,8 +15,13 @@ const Ejemplo = () => {
     const [primerHijoActivo, setPrimerHijoActivo] = useState(false);
     const [contador, setContador] = useState(9);
 
+
+    const [height, setHeight] = useState(0);
+
+  
+
     useEffect(() => {
-        axios.get("http://localhost:3000/peticiones")
+        axios.get("https://inmueblesnode-2.onrender.com/peticiones")
             .then(response => {
                 setPropiedades(response.data);
                 console.log(response.data);
@@ -113,6 +118,7 @@ const Ejemplo = () => {
                                         <div className="contenedordescrip">
                                             <p className="desde">desde</p>
                                             <h1 className="h1m">{e.costo}</h1>
+                                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquid accusamus at a molestias hic atque nostrum commodi tempore quia! Eligendi fugit eveniet repudiandae quod natus eum! Maxime ab reiciendis molestiae?</p>
                                             <p className="lugar">{e.ciudad}</p>
                                             <p className="descripcion">{e.descripcion}</p>
                                             <div className="contenedorcontacto">
