@@ -16,7 +16,7 @@ const Ejemplo = () => {
     const [contador, setContador] = useState(9);
 
     useEffect(() => {
-        axios.get("https://inmueblesnode-2.onrender.com/peticiones")
+        axios.get("http://localhost:3000/peticiones")
             .then(response => {
                 setPropiedades(response.data);
                 console.log(response.data);
@@ -115,11 +115,12 @@ const Ejemplo = () => {
                                             <h1 className="h1m">{e.costo}</h1>
                                             <p className="lugar">{e.ciudad}</p>
                                             <p className="descripcion">{e.descripcion}</p>
-                                        </div>
-                                        <div className="contenedorcontacto">
+                                            <div className="contenedorcontacto">
                                             <a href={`https://api.whatsapp.com/send?phone=${e.whatsapp}&text=Hola%20desde%20${encodeURIComponent(e.ciudad)}`} className="action">WhatsApp</a>
                                             <a href={`mailto:${e.email}`} className="action action2">correo</a>
                                         </div>
+                                        </div>
+                                      
                                     </div>
                                 </div>
                             </div>

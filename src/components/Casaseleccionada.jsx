@@ -26,21 +26,25 @@ const Slider = () => {
   document.body.style.backgroundColor="white"
   const [scrollb, setscrollb]=useState(window.scrollY)
   const form =document.querySelector(".form-con")
+  const formulariocona = document.querySelector(".formulario-container")
 useEffect(()=>{
 
   const dd =()=>{
     setscrollb(window.scrollY)
     console.log(window.scrollY)
-
+ 
     if(scrollb > 548 && scrollb < 1000){
       form.style.position = "fixed"
       form.style.right ="0px"
       form.style.top = "10%"
-      console.log("jsjs");
-         }else{
+      console.log(scrollb ,"jsjs");
+         }
+         if(scrollb > 1000) {
+          formulariocona.style.margintop ="100px"
+          console.log(window.scrollY, "ccccccc");
+          form.style.display = "flex"
+          form.style.alidgitems= "end"
           
-          form.style.position = "relative"
-
          } 
        }
 
@@ -108,14 +112,13 @@ const fun = ()=>{
   const bb =document.querySelector(".absolu")
   const cvb = document.querySelector(".slider2") 
   if (cv == true) {
-    document.body.style.overflow = "hidden"; // Deshabilitar el scroll
+    document.body.style.overflow = "hidden";  
     bb.style.display = "block";
     cvb.style.display = "block";
 }else{
   document.body.style.overflow = "scroll";  
     bb.style.display = "none";
     cvb.style.display = "none";
-
 }
 }
 
