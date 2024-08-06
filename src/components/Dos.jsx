@@ -49,7 +49,7 @@ const Dos = () => {
                 formData.append(key, estado[key]);
             }
 
-            axios.post("http://localhost:3000/l", formData, {
+            axios.post("https://inmueblesnode-2.onrender.com/l", formData, {
                 headers: {
                     "Content-Type": "multipart/form-data"
                 }
