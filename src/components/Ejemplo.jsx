@@ -20,7 +20,7 @@ const Ejemplo = ({addmensaje}) => {
     const [height, setHeight] = useState(0);
 
     useEffect(() => {
-        axios.get("http://localhost:3000/peticiones")
+        axios.get("https://inmueblesnode-2.onrender.com/peticiones")
             .then(response => {
                 setPropiedades(response.data);
                 console.log(response.data);
