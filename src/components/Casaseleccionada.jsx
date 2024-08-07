@@ -24,7 +24,7 @@ const Slider = ({ da }) => {
   const { id } = useParams();
 
   useEffect(() => {
-    axios.post('http://localhost:3000/id', { id })
+    axios.post('https://inmueblesnode-2.onrender.com/id', { id })
       .then(response => {
         console.log(response.data);
         setBcb(response.data);
