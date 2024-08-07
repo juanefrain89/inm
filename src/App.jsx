@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -24,19 +24,23 @@ import Nuevoregistro from './components/Nuevoregistro'
 import Io from './components/Io'
 import Ii from './components/Ii'
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [count, setCount] = useState()
+const addmensaje= (mensaje)=>{
+ 
+ setCount(mensaje)
+}
+ 
   return (
     <>
     <Router>
       <Routes> 
         
-      <Route path="/" element={<Ejemplo/>} />
+      <Route path="/" element={<Ejemplo addmensaje={addmensaje}/>} />
       <Route path="/bd" element={<Ii></Ii>} />
       <Route path="/nuevo" element={<Io></Io>} />
      <Route path='registro' element={<Sa/>}/>
      
-      <Route path="/casa/:id" element={<Casaseleccionada />} />
+      <Route path="/casa/:id" element={<Casaseleccionada da={count} />} />
       <Route path='/publicar' element={<Datos></Datos>}></Route>
       <Route path='/dos' element={<Dos></Dos>}></Route>
 

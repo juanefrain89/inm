@@ -122,7 +122,12 @@
   padding: 16px;
   border-radius: 8px;
 }
-
+.titulo{
+  font-size: 30px;
+  font-family: 'Courier New', Courier, monospace;
+ 
+}
+ 
 .abajo-contenedor {
   flex-wrap: wrap;
 }

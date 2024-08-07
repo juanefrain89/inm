@@ -5,7 +5,8 @@ import axios from 'axios';
 import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Link } from "react-router-dom";
 
-const Ejemplo = () => {
+const Ejemplo = ({addmensaje}) => {
+    const [casaSeleccionada, setCasaSeleccionada] = useState(null);
     const [nuevo, setNuevo] = useState([]);
     const [propiedades, setPropiedades] = useState([]);
     const [mostrarContenido, setMostrarContenido] = useState(false);
@@ -15,13 +16,11 @@ const Ejemplo = () => {
     const [primerHijoActivo, setPrimerHijoActivo] = useState(false);
     const [contador, setContador] = useState(9);
 
-
+    
     const [height, setHeight] = useState(0);
 
-  
-
     useEffect(() => {
-        axios.get("https://inmueblesnode-2.onrender.com/peticiones")
+        axios.get("http://localhost:3000/peticiones")
             .then(response => {
                 setPropiedades(response.data);
                 console.log(response.data);
@@ -30,7 +29,13 @@ const Ejemplo = () => {
                 console.log(e);
             });
     }, []);
-
+    const handleCasaClick = (casa) => {
+        setCasaSeleccionada(casa);
+        setTimeout(() => {
+            addmensaje(casa);
+          }, 500); 
+         
+      };
     useEffect(() => {
         setNuevo(propiedades.filter(item => item.costo > inp));
         console.log(nuevo);
@@ -39,16 +44,12 @@ const Ejemplo = () => {
     useEffect(() => {
         setContador(nuevo.length);
     }, [nuevo]);
-
     useEffect(() => {
         const primerHijo = document.querySelector('.contenedorsig');
         if (primerHijo) {
             primerHijo.classList.add('active');
         }
     }, []);
-
-  
-
     const botonfiltrar = (e) => {
         e.preventDefault();
         setPrecioMinimo(e.target.value);
@@ -108,7 +109,7 @@ const Ejemplo = () => {
                         </div>
                     )}
                     {nuevo.slice(numeroElementos - 6, numeroElementos).map((e, index) => (
-                        <Link key={e.id} to={`/casa/${e.id}`}>
+                        <Link key={e.id} to={`/casa/${e.id}`} onClick={() => handleCasaClick(e)} >
                             <div className="contenedoropciones">
                                 <div className="one">
                                     <div className="conetendorimagen1">
@@ -130,8 +131,10 @@ const Ejemplo = () => {
                                     </div>
                                 </div>
                             </div>
+                           
                         </Link>
                     ))}
+                     
                     <div className="hj">
                         {nuevo.slice(0, Math.ceil(contador / 6)).map((elemento, index) => (
                             <div key={index} className={`contenedorsig ${index === 0 && primerHijoActivo ? 'active' : ''}`}>
@@ -144,7 +147,9 @@ const Ejemplo = () => {
                             </div>
                         ))}
                     </div>
+                    {casaSeleccionada && <casaSeleccionada casa={casaSeleccionada} />}
                     <Piepag />
+                     
                 </>
             )}
         </>

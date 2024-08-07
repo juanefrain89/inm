@@ -14,53 +14,76 @@ import { CiRuler } from "react-icons/ci";
 import Piepag from './Piepag';
 import { IoBedOutline } from "react-icons/io5";
 import { MdBathtub } from "react-icons/md";
-import { IoCarSportOutline } from "react-icons/io5"
+import { IoCarSportOutline } from "react-icons/io5";
+import axios from 'axios';
+import { useParams } from 'react-router-dom';
 
+const Slider = ({ da }) => {
+  const [bcb, setBcb] = useState([]);
+  const [propiedades, setPropiedades] = useState({});
+  const { id } = useParams();
 
-const Slider = () => {
+  useEffect(() => {
+    axios.post('http://localhost:3000/id', { id })
+      .then(response => {
+        console.log(response.data);
+        setBcb(response.data);
+      })
+      .catch(e => {
+        console.error(e);
+      });
+  }, [id]);
+
+  useEffect(() => {
+    if (bcb.length > 0) {
+      console.log(bcb[0].id);
+    }
+  }, [bcb]);
+
   const [currentIndex, setCurrentIndex] = useState(0);
-  const images = [casa1, logo, casa2, casa3,casa4, aaron , met]
-  const [quitar, setquitar]=useState(true)
+  const images = [casa1, logo, casa2, casa3, casa4, aaron, met];
+  const [quitar, setQuitar] = useState(true);
   const rootElement = document.getElementById('root');
   rootElement.style.backgroundColor = "white";
-  document.body.style.backgroundColor="white"
-  const [scrollb, setscrollb]=useState(window.scrollY)
-  const form =document.querySelector(".form-con")
-  const formulariocona = document.querySelector(".formulario-container")
-useEffect(()=>{
+  document.body.style.backgroundColor = "white";
+  const [scrollb, setScrollb] = useState(window.scrollY);
+  const form = document.querySelector(".form-con");
+  const formulariocona = document.querySelector(".formulario-container");
 
-  const dd =()=>{
-    setscrollb(window.scrollY)
-    console.log(window.scrollY)
- 
-    if(scrollb > 548 && scrollb < 1000){
-      form.style.position = "fixed"
-      form.style.right ="0px"
-      form.style.top = "10%"
-      console.log(scrollb ,"jsjs");
-         }
-         if(scrollb > 1000) {
-          formulariocona.style.margintop ="100px"
-          console.log(window.scrollY, "ccccccc");
-          form.style.display = "flex"
-          form.style.alidgitems= "end"
-          
-         } 
-       }
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollb(window.scrollY);
+      console.log(window.scrollY);
 
-window.addEventListener("scroll", dd)
- return ()=>{
-  window.removeEventListener("scroll", dd)
- }
-}, [window.scrollY])
-    useEffect(()=>{
-      const alto = document.querySelector(".informacion-casa")
-      var altoo = alto.clientHeight;
-      var formcon = document.querySelector(".form-con") 
-      formcon.style.height = altoo + "px"
-    }, []) 
+      if (scrollb > 548 && scrollb < 1000) {
+        form.style.position = "fixed";
+        form.style.right = "0px";
+        form.style.top = "10%";
+        console.log(scrollb, "jsjs");
+      }
+      if (scrollb > 1000) {
+        formulariocona.style.marginTop = "100px";
+        console.log(window.scrollY, "ccccccc");
+        form.style.display = "flex";
+        form.style.alignItems = "end";
+      }
+    };
 
-const [x, xx]=useState(false)
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [scrollb]);
+
+  useEffect(() => {
+    const alto = document.querySelector(".informacion-casa");
+    const formcon = document.querySelector(".form-con");
+    if (alto && formcon) {
+      formcon.style.height = `${alto.clientHeight}px`;
+    }
+  }, []);
+
+  const [x, setX] = useState(false);
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
   };
@@ -68,176 +91,141 @@ const [x, xx]=useState(false)
     setCurrentIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
   };
 
-  const imagenes = [
-    { original: logo },
-    { original: casa1 },
-    { original: casa2 },
-    { original: casa3 },
-    {original: aaron}
-];
+  const quitardisplay = () => {
+    setQuitar(!quitar);
+  };
 
-const quitardisplay =()=>{
-
- setquitar(!quitar)
- 
-}
-
-useEffect(() => {
-  if (!quitar) {
+  useEffect(() => {
     const c = document.querySelector(".leer");
-    c.style.display = "none";
-    const menos = document.querySelector(".menos")
-    menos.style.display = "block";
-  }else{
-     
-    const c = document.querySelector(".leer");
-    c.style.display = "block";
-  }
-}, [quitar]);
+    const menos = document.querySelector(".menos");
+    if (!quitar) {
+      if (c) c.style.display = "none";
+      if (menos) menos.style.display = "block";
+    } else {
+      if (c) c.style.display = "block";
+    }
+  }, [quitar]);
 
-
-const contenedor = document.querySelector(".abajo-contenedor")
-  
-  const [scroll , setcoll]=useState(0)
-  const [mod , setmod]= useState(false)
-  
-    useEffect(()=>{
-
-},[])
-
-const [cv , ccv]=useState(false)
-
-const fun = ()=>{
-  ccv(!cv)
-  const bb =document.querySelector(".absolu")
-  const cvb = document.querySelector(".slider2") 
-  if (cv == true) {
-    document.body.style.overflow = "hidden";  
-    bb.style.display = "block";
-    cvb.style.display = "block";
-}else{
-  document.body.style.overflow = "scroll";  
-    bb.style.display = "none";
-    cvb.style.display = "none";
-}
-}
-
+  const fun = () => {
+    setX(!x);
+    const bb = document.querySelector(".absolu");
+    const cvb = document.querySelector(".slider2");
+    if (x) {
+      document.body.style.overflow = "hidden";
+      if (bb) bb.style.display = "block";
+      if (cvb) cvb.style.display = "block";
+    } else {
+      document.body.style.overflow = "scroll";
+      if (bb) bb.style.display = "none";
+      if (cvb) cvb.style.display = "none";
+    }
+  };
 
   return (
     <>
-      <Menu />
-      <div className="absolu">
-        <p className='xx' onClick={fun}>x</p>
-      </div>
-
-      <div className="slider2">
-        <button className="prev" onClick={prevSlide}>❮</button>
-        {images.map((image, index) => (
-          <div
-            key={index}
-            className={index === currentIndex ? 'slide2 active' : 'slide2'}
-          >
-            {index === currentIndex && (
-              <img src={image} alt={`Slide ${index + 1}`} />
-            )}
+      {bcb.length === 0 ? (
+        <p>cargando</p>
+      ) : (
+        <>
+          <Menu />
+          <div className="absolu">
+            <p className='xx' onClick={fun}>x</p>
           </div>
-        ))}
-        <button className="next" onClick={nextSlide}>❯</button>
-      </div>
 
-<div className="conte" onClick={fun} >
-  <img src={casa1} alt="" className='ime ime1' />
-  <img src={casa2} alt=""  className='ime ime2'/>
-  <img src={casa4} alt="" className='ime ime2' />
-</div>
-
-      <div className="slider">
-        <button className="prev" onClick={prevSlide}>❮</button>
-        {images.map((image, index) => (
-          <div
-            key={index}
-            className={index === currentIndex ? 'slide active' : 'slide'}
-          >
-            {index === currentIndex && (
-              <img src={image} alt={`Slide ${index + 1}`} />
-            )}
+          <div className="slider2">
+            <button className="prev" onClick={prevSlide}>❮</button>
+            {images.map((image, index) => (
+              <div
+                key={index}
+                className={index === currentIndex ? 'slide2 active' : 'slide2'}
+              >
+                {index === currentIndex && (
+                  <img src={image} alt={`Slide ${index + 1}`} />
+                )}
+              </div>
+            ))}
+            <button className="next" onClick={nextSlide}>❯</button>
           </div>
-        ))}
-        <button className="next" onClick={nextSlide}>❯</button>
-      </div>
 
+          <div className="conte" onClick={fun}>
+            <img src={casa1} alt="" className='ime ime1' />
+            <img src={casa2} alt="" className='ime ime2' />
+            <img src={casa4} alt="" className='ime ime2' />
+          </div>
 
+          <div className="slider">
+            <button className="prev" onClick={prevSlide}>❮</button>
+            {images.map((image, index) => (
+              <div
+                key={index}
+                className={index === currentIndex ? 'slide active' : 'slide'}
+              >
+                {index === currentIndex && (
+                  <img src={image} alt={`Slide ${index + 1}`} />
+                )}
+              </div>
+            ))}
+            <button className="next" onClick={nextSlide}>❯</button>
+          </div>
 
+          <div className="abajo-contenedor">
+            <div className="informacion-casa">
+            <div className="des">
+                <h1 className='titulo'><center  className='titulo'>   Casa en Venta en {bcb[0].ciudad}</center></h1>
+                <p>  </p>
+              </div>
+              <div className="bb">
+                <p className='sa'>Venta MN 2,050,000</p>
+                <p className='nn'>Casa · {bcb[0].metros} · {bcb[0].cuartos} recámaras · 2 estacionamientos- 5 baños</p>
+              </div>
+               
+               
+              <div>
+                <p className='lorem'> {bcb[0].descripcion}
+                </p>
+                 
+              </div>
 
-<div className="abajo-contenedor"> 
+              <ul className="iconos">
+                <li> <IoBedOutline className='icono1' /></li>
+                <li><LuBath className='icono1 ico' /></li>
+                <li><MdBathtub className='icono1'></MdBathtub></li>
+                <li><IoCarSportOutline className='icono1'></IoCarSportOutline></li>
+                <li><CiRuler className='icono1'></CiRuler></li>
+              </ul>
+            </div>
 
-<div className="informacion-casa">
-<div className="bb">
-<p className='sa'>Venta MN 2,050,000</p>
-  <p className='nn'>Casa · 180m² · 3 recámaras · 2 estacionamientos</p>
+            <div className="form-con">
+              <div className="formulario-container">
+                <h2 className='contac'>Contacto</h2>
+                <form >
+                  <div className="input-group">
+                    <label htmlFor="email">Correo electrónico:</label>
+                    <input type="email" id="email" name="email" required />
+                  </div>
+                  <div className="input-group">
+                    <label htmlFor="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required />
+                  </div>
+                  <div className="input-group">
+                    <label htmlFor="mensaje">Mensaje:</label>
+                    <textarea id="mensaje" name="mensaje" required />
+                  </div>
+                  <button type="submit" className="btn-enviar">Enviar</button>
+                </form>
+                <div className="whatsapp-container">
+                  <p>O contacta por WhatsApp:</p>
+                  <a href="" className="actionn">WhatsApp</a>
+                </div>
+              </div>
+            </div>
+          </div>
 
-</div>
-
-<div className="des"> <h1>Casa en Venta en Fraccionamiento Las Lomas Torreón, Coahuila </h1>
-<p> 
-Estás buscando tu casa te presentamos uno de los Fraccionamientos con la mejor de las amenidades, cuenta alberca, Casa club, amplias áreas verdes, casa club, cancha de fútbol, cancha de Padel.
-Servicio de Vigilancia las 24 horas del día.
-Planta Baja:</p></div>
-
-<div> 
-  <p className='lorem'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas nesciunt nulla animi libero ratione a iusto illo soluta maxime error porro earum ab, in esse officia et corporis qui nobis!
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos ut laudantium voluptates doloribus, asperiores mollitia iusto nisi nobis laboriosam ea deserunt obcaecati id sit tempora dolorum vero ipsum ab? Soluta.
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum nihil vero quisquam, eum ab magni? Odit iure exercitationem ad alias quis, aliquid possimus enim eveniet saepe numquam, rerum deleniti cumque.
-    </p>  <button className='leer' onClick={quitardisplay}> leer mas </button>
-    <p className={quitar ? "pdis" : "lorem"}>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, dolore provident totam ratione non odit! Veritatis voluptate eveniet qui optio! Perferendis corrupti reprehenderit amet quos? Consequuntur exercitationem saepe unde laudantium!
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias animi accusantium facere sapiente doloremque! Tenetur nulla corporis error debitis libero odio tempora eos, nesciunt, non ullam, nemo doloremque sint obcaecati.
-    Lorem  sit amet consectetur adipisicing elit. Labore blanditiis praesentium facilis repellendus consequuntur aut asperiores sed voluptates nisi assumenda, perferendis nulla itaque exercitationem quidem iusto amet inventore. Mollitia, voluptas!
-    </p>
-     
-    </div>
-
-    <ul className="iconos">
-  <li> <IoBedOutline  className='icono1'/>
-  </li>
-  <li><LuBath  className='icono1 ico' /></li>
-  <li><MdBathtub className='icono1'></MdBathtub></li>
-  <li><IoCarSportOutline className='icono1'></IoCarSportOutline></li>
-  <li><CiRuler className='icono1'></CiRuler></li>
-</ul>
-  
-
-
-</div>
-
-
-<div className="form-con">
-   <div className="formulario-container">
-      <h2 className='contac'>Contacto</h2>
-      <form >
-        <div className="input-group">
-          <label htmlFor="email">Correo electrónico:</label>
-          <input type="email" id="email" name="email" required />
-        </div>
-        <div className="input-group">
-          <label htmlFor="nombre">Nombre:</label>
-          <input type="text" id="nombre" name="nombre" required />
-        </div>
-        <div className="input-group">
-          <label htmlFor="mensaje">Mensaje:</label>
-          <textarea id="mensaje" name="mensaje" required />
-        </div>
-        <button type="submit" className="btn-enviar">Enviar</button>
-      </form>
-      <div className="whatsapp-container">
-        <p>O contacta por WhatsApp:</p>
-        <a href="" className="actionn">WhasaApp</a>
-      </div>
-    </div>
-  </div>
- </div>   
-<Piepag></Piepag>
+          <Piepag />
+        </>
+      )}
     </>
   );
 };
+
 export default Slider;
