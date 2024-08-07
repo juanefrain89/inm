@@ -359,7 +359,7 @@ p {
 }
 
 @media screen and (max-width: 600px) {
-  .conte {
+  .conte, .formulario-container, .form-con {
     display: none;
   }
   .slider {
